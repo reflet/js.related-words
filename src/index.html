@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>関連ワードを生成する</title>
+</head>
+<body>
+  <!-- 検索BOX -->
+  <form method="get" action="" id="search">
+    <input type="text" name="q" value="保険" placeholder="検索キーワードを入力してください。" />
+    <input type="submit" value="検索">
+  </form>
+  
+  <!-- 関連ワード機能 (Google Suggest) -->
+  <ul class="jq-related-words"></ul>
+
+  <script src="./js/jquery-1.4.2.min.js"></script>
+  <script src="./js/jquery.related-words.js"></script>
+  <script>
+    (function($) {
+      $(document).ready(function() {
+        $('ul.jq-related-words').relatedWords({
+          act    : '',
+          domain : '',
+          keyword: $("#search input[name='q']").val()
+        });
+      });
+    }(jQuery));
+  </script>
+</body>
+</html>
